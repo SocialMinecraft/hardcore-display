@@ -31,7 +31,11 @@ function secondsToFriendlyTime(seconds: number) {
 }
 
 export default async function Home() {
-    let url = process.env.API_SERVER || 'http://localhost:3030';
+    let url = process.env.API_SERVER;
+    if (url == undefined) {
+        console.log("API_SERVER not set");
+        url = 'http://localhost:3030';
+    }
     let data = await fetch(url + '/timelines',  { cache: 'no-store' })
     let timelines = await data.json()
 
