@@ -1,11 +1,10 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
-RUN npm install
 COPY . .
 RUN rm -rf node_modules
 RUN npm install
-RUN npm build
+RUN npm run build --production
 
 EXPOSE 3000
 CMD ["npm", "start"]

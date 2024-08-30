@@ -17,7 +17,7 @@ export async function getStaticProps() {
   }
 }*/
 
-export function secondsToFriendlyTime(seconds: number) {
+function secondsToFriendlyTime(seconds: number) {
     if (seconds < 60) return `${seconds} second${seconds !== 1 ? 's' : ''}`;
 
     const minutes = Math.floor(seconds / 60);
@@ -61,7 +61,7 @@ export default async function Home() {
                             <td>{secondsToFriendlyTime(timeline.shortest_life_seconds)}</td>
                         </tr>
                         <tr>
-                            <th colspan="2">Events</th>
+                            <th colSpan={2}>Events</th>
                         </tr>
                                     {timeline.events.map((event: any) => (
                                         <tr key={event.stamp}>
