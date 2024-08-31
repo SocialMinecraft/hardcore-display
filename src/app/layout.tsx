@@ -16,7 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header className="mt-10">
+            <div className="flex flex-row justify-center">
+            <h1 className="font-bold text-4xl text-center p-3">SoMC: 3 Life Hardcore Ranking</h1>
+            </div>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
