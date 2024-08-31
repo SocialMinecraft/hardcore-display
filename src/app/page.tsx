@@ -69,11 +69,24 @@ export default async function Home() {
                         </tr>
                                     {timeline.events.map((event: any) => (
                                         <tr key={event.stamp}>
-                                            <td>{event.what}</td>
+                                            <td>
+                                                {event.what}
+                                                {(event.what == "Alive" || event.what == "Died") && <br/>}
+                                                {(event.what == "Alive" || event.what == "Died") &&
+                                                    <span className={event.unranked ? "text-zinc-500" : "text-sky-600"}>
+                                                        {event.unranked ? "Unranked" : "Ranked"}
+                                                    </span>
+                                                }
+                                            </td>
                                             <td>
                                                 <br/>
                                                 {event.context}<br/>
                                                 UTC: {event.stamp}<br/>
+                                                {(event.what == "Alive" || event.what == "Died") &&
+                                                    <span className="text-zinc-400">
+                                                        Survival Time: {secondsToFriendlyTime(event.span)}
+                                                    </span>
+                                                }
                                                 {/*Playtime <i>(If available)</i>: {secondsToFriendlyTime(event.playtime)}*/}
                                             </td>
                                         </tr>
