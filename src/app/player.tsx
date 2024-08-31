@@ -8,7 +8,7 @@ export default function Player({timeline}: { timeline: any }) {
             </div>
             <div className="flex flex-col lg:flex-row mt-2">
                 <div className="basis-1/4">
-                    Survival Time: {secondsToFriendlyTime(timeline.shortest_life_seconds)}<br />
+                    Survival Time: {secondsToFriendlyTime(timeline.survived_seconds)}<br />
                     Longest Life: {secondsToFriendlyTime(timeline.longest_life_seconds)}<br />
                     Shortest Life: {secondsToFriendlyTime(timeline.shortest_life_seconds)}<br />
                 </div>
